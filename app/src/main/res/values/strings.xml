@@ -9,4 +9,21 @@
     <string name="txt_login">Login</string>
     <string name="txt_clear">Clear</string>
     <string name="hint_password">enter password</string>
+    <string name="Welcome">Welcome,</string>
+    <string name="txt_educationLevel">Please select your education:</string>
+    <string name="txt_graduate">Graduate</string>
+    <string name="txt_underGraduated">Under Graduated</string>
+    <string name="txt_course_selection">Select the Course:</string>
+    <string name="txt_course_fee">Course Fees:</string>
+    <string name="txt_course_hours">Course Hours</string>
+    <string name="placeHolder_courseFee">$ 0</string>
+    <string name="placeHolder_courseHours">0 hours/week</string>
+    <string name="btnTxt_add">Add</string>
+    <string name="btnTxt_reset">Reset</string>
+    <string name="txt_accomodation">Accomodation</string>
+    <string name="txt_medicalInsurance">Medical Insurance</string>
+    <string name="txt_total_fees">Total Fees:</string>
+    <string name="placeHolder_totalFees">$ 0</string>
+    <string name="txt_total_hours">Total Hours:</string>
+    <string name="placeHolder_totalHours">0 hours/week</string>
 </resources>

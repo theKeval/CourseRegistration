@@ -6,13 +6,206 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvTitle_MainActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/txt_title"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvWelcomeMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="64dp"
+                android:text="@string/Welcome"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle_MainActivity" />
+
+            <TextView
+                android:id="@+id/tvEducation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/txt_educationLevel"
+                app:layout_constraintStart_toStartOf="@+id/tvWelcomeMsg"
+                app:layout_constraintTop_toBottomOf="@+id/tvWelcomeMsg" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvEducation"
+                app:layout_constraintTop_toBottomOf="@+id/tvEducation">
+
+                <RadioButton
+                    android:id="@+id/rbGraduate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/txt_graduate" />
+
+                <RadioButton
+                    android:id="@+id/rbUnderGraduated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/txt_underGraduated" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tvCourseSelection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/txt_course_selection"
+                app:layout_constraintStart_toStartOf="@+id/tvWelcomeMsg"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+            <Spinner
+                android:id="@+id/spinner_courses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:minWidth="100dp"
+                android:minHeight="42dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCourseSelection"
+                app:layout_constraintStart_toEndOf="@+id/tvCourseSelection"
+                app:layout_constraintTop_toTopOf="@+id/tvCourseSelection" />
+
+            <TextView
+                android:id="@+id/lable_CourseFees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:text="@string/txt_course_fee"
+                app:layout_constraintStart_toStartOf="@+id/tvCourseSelection"
+                app:layout_constraintTop_toBottomOf="@+id/tvCourseSelection" />
+
+            <TextView
+                android:id="@+id/lable_CourseHours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/txt_course_hours"
+                app:layout_constraintStart_toStartOf="@+id/lable_CourseFees"
+                app:layout_constraintTop_toBottomOf="@+id/lable_CourseFees" />
+
+            <TextView
+                android:id="@+id/tvCourseFees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@string/placeHolder_courseFee"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lable_CourseFees"
+                app:layout_constraintStart_toEndOf="@+id/lable_CourseFees" />
+
+            <TextView
+                android:id="@+id/tvCourseHours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/placeHolder_courseHours"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lable_CourseHours"
+                app:layout_constraintStart_toStartOf="@+id/tvCourseFees" />
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:text="@string/btnTxt_add"
+                app:layout_constraintEnd_toStartOf="@+id/btnReset"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lable_CourseHours" />
+
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnTxt_reset"
+                app:layout_constraintBaseline_toBaselineOf="@+id/btnAdd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnAdd" />
+
+            <CheckBox
+                android:id="@+id/cbAccomodation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/txt_accomodation"
+                app:layout_constraintStart_toStartOf="@+id/lable_CourseHours"
+                app:layout_constraintTop_toBottomOf="@+id/btnAdd" />
+
+            <CheckBox
+                android:id="@+id/cbMedInsurance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@string/txt_medicalInsurance"
+                app:layout_constraintBaseline_toBaselineOf="@+id/cbAccomodation"
+                app:layout_constraintStart_toEndOf="@+id/cbAccomodation" />
+
+            <TextView
+                android:id="@+id/lable_totalFees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/txt_total_fees"
+                app:layout_constraintStart_toStartOf="@+id/cbAccomodation"
+                app:layout_constraintTop_toBottomOf="@+id/cbAccomodation" />
+
+            <TextView
+                android:id="@+id/tvTotalFees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@string/placeHolder_totalFees"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lable_totalFees"
+                app:layout_constraintStart_toEndOf="@+id/lable_totalFees" />
+
+            <TextView
+                android:id="@+id/lable_totalHours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="32dp"
+                android:text="@string/txt_total_hours"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lable_totalFees"
+                app:layout_constraintTop_toBottomOf="@+id/lable_totalFees" />
+
+            <TextView
+                android:id="@+id/tvTotalHours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/placeHolder_totalHours"
+                app:layout_constraintBaseline_toBaselineOf="@+id/lable_totalHours"
+                app:layout_constraintStart_toStartOf="@+id/tvTotalFees" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
