@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">CourseRegistration</string>
+    <string name="txt_title">Course Registration</string>
+    <string name="txt_student_name">Student Name:</string>
+    <string name="hint_student_name">enter student name</string>
+    <string name="txt_user_name">Username:</string>
+    <string name="hint_username">enter username</string>
+    <string name="txt_password">Password:</string>
+    <string name="txt_login">Login</string>
+    <string name="txt_clear">Clear</string>
 </resources>
