@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
                 tvCourseFees.setText("$ 0");
                 tvCourseHours.setText("0  hours/week");
-                rbUnderGraduate.setSelected(true);
+                rbUnderGraduate.setChecked(true);
                 tvTotalFees.setText("$ " + totalFees);
                 tvTotalHours.setText(totalHours + "  hours/week");
                 spinnerCourses.setSelection(0, true);
