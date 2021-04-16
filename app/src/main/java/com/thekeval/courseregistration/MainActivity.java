@@ -8,7 +8,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -16,15 +18,22 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    // variables to hold the refence of UI elements
     TextView tvWelcomeMsg, tvCourseFees, tvCourseHours, tvTotalFees, tvTotalHours;
     Button btnAdd, btnReset;
     RadioButton rbGraduate, rbUnderGraduate;
     CheckBox cbAccommodations, cbMedInsurance;
     Spinner spinnerCourses;
+    RadioGroup radioGroup;
 
+    // variables to use in the logic
     ArrayList<Course> lstCourses = new ArrayList<>();
+    ArrayList<Course> addedCourses = new ArrayList<>();
     ArrayList<String> courseNames = new ArrayList<>();
     String studentName = "";
+    Course selectedCourse;
+    static double totalFees = 0;
+    static int totalHours = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         tvTotalFees = findViewById(R.id.tvTotalFees);
         tvTotalHours = findViewById(R.id.tvTotalHours);
 
+        radioGroup = findViewById(R.id.radioGroup);
         btnAdd = findViewById(R.id.btnAdd);
         btnReset = findViewById(R.id.btnReset);
 
@@ -54,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
         // set the data
         tvWelcomeMsg.setText("Welcome " + studentName + ",");
+        rbUnderGraduate.setSelected(true);
+
+
         fillCourseNames();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, courseNames);
         spinnerCourses.setAdapter(adapter);
@@ -65,7 +78,16 @@ public class MainActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // check for conditions and add the course
+                // check for conditions and add the course if condition satisfy
+                if (shouldAdd()) {
+                    addedCourses.add(selectedCourse);
+
+                    totalFees += selectedCourse.getFees();
+                    totalHours += selectedCourse.getHours();
+
+                    tvTotalFees.setText("$ " + totalFees);
+                    tvTotalHours.setText(totalHours + "  hours/week");
+                }
             }
         });
 
@@ -73,10 +95,43 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // reset all the fields and selection to default
+                totalFees = 0;
+                totalHours = 0;
+                addedCourses = new ArrayList<>();
+
+                tvCourseFees.setText("$ 0");
+                tvCourseHours.setText("0  hours/week");
+                rbUnderGraduate.setSelected(true);
+                tvTotalFees.setText("$ " + totalFees);
+                tvTotalHours.setText(totalHours + "  hours/week");
+                spinnerCourses.setSelection(0, true);
             }
         });
 
+        cbAccommodations.setOnCheckedChangeListener(new CheckboxListeners());
+        cbMedInsurance.setOnCheckedChangeListener(new CheckboxListeners());
 
+    }
+
+    private boolean shouldAdd() {
+        if (rbGraduate.isSelected()) {
+            if (totalHours + selectedCourse.getHours() <= 21) {
+                // add
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            if (totalHours + selectedCourse.getHours() <= 19) {
+                // add
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }
 
     // fill the course data
@@ -100,8 +155,10 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-            tvCourseFees.setText("$ " +lstCourses.get(i).getName());
+            tvCourseFees.setText("$ " +lstCourses.get(i).getFees());
             tvCourseHours.setText(lstCourses.get(i).getHours() + "  hours/week");
+
+            selectedCourse = lstCourses.get(i);
         }
 
         @Override
@@ -110,22 +167,41 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    public class ButtonListeners implements View.OnClickListener {
-//
-//        @Override
-//        public void onClick(View view) {
-//            switch (view.getId()) {
-//                case R.id.btnAdd:
-//                    break;
-//
-//                case R.id.btnClear:
-//                    break;
-//
-//                default:
-//                    break;
-//            }
-//        }
-//    }
+
+    public class CheckboxListeners implements CompoundButton.OnCheckedChangeListener {
+
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            switch (compoundButton.getId()) {
+                case R.id.cbAccomodation:
+
+                    if (compoundButton.isChecked()) {
+                        totalFees += 1000;
+                    }
+                    else {
+                        totalFees -= 1000;
+                    }
+
+                    break;
+
+                case R.id.cbMedInsurance:
+
+                    if (compoundButton.isChecked()) {
+                        totalFees += 700;
+                    }
+                    else {
+                        totalFees -= 700;
+                    }
+
+                    break;
+
+                default:
+                    break;
+            }
+
+            tvTotalFees.setText("$ " + totalFees);
+        }
+    }
 
 
 }

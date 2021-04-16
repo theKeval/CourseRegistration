@@ -25,8 +25,6 @@ public class LoginActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
 
-        student_name = etStudentName.getText().toString();
-
         btnLogin = findViewById(R.id.btnLogin);
         btnClear = findViewById(R.id.btnClear);
 
@@ -45,6 +43,8 @@ public class LoginActivity extends AppCompatActivity {
                 etPassword.getText().toString().toLowerCase().equals("123456")) {
 
             // proceed for login and navigate
+            student_name = etStudentName.getText().toString();
+
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
 
