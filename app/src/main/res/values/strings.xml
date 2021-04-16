@@ -17,7 +17,7 @@
     <string name="txt_course_fee">Course Fees:</string>
     <string name="txt_course_hours">Course Hours</string>
     <string name="placeHolder_courseFee">$ 0</string>
-    <string name="placeHolder_courseHours">0 hours/week</string>
+    <string name="placeHolder_courseHours">0  hours/week</string>
     <string name="btnTxt_add">Add</string>
     <string name="btnTxt_reset">Reset</string>
     <string name="txt_accomodation">Accomodation</string>

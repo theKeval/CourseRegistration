@@ -96,18 +96,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // reset all the fields and selection to default
-                tvCourseFees.setText("$ 0");
-                tvCourseHours.setText("0  hours/week");
                 rbUnderGraduate.setChecked(true);
                 cbAccommodations.setChecked(false);
                 cbMedInsurance.setChecked(false);
-                tvTotalFees.setText("$ " + totalFees);
-                tvTotalHours.setText(totalHours + "  hours/week");
                 spinnerCourses.setSelection(0, true);
 
                 totalFees = 0;
                 totalHours = 0;
                 addedCourses = new ArrayList<>();
+
+                tvCourseFees.setText("$ 0");
+                tvCourseHours.setText("0  hours/week");
+                tvTotalFees.setText("$ " + String.format("%.0f", totalFees));
+                tvTotalHours.setText(totalHours + "  hours/week");
             }
         });
 
