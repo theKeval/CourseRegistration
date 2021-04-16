@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         tvWelcomeMsg.setText("Welcome " + studentName + ",");
         rbUnderGraduate.setChecked(true);
 
-
         fillCourseNames();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, courseNames);
         spinnerCourses.setAdapter(adapter);

@@ -35,6 +35,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                etStudentName.setText("");
+                etUsername.setText("");
+                etPassword.setText("");
+            }
+        });
+
     }
 
     private void login() {
