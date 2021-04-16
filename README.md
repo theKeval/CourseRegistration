@@ -4,7 +4,7 @@
 ### Screenshots
 
 #### Login Screen
-![Login Screen](https://photos.app.goo.gl/Uj5VyDaLMqkmVtdh8)
+![Login Screen](https://ibb.co/kH4QP93)
 
 #### Course Selection Screen
-![Course Selection Screen](https://photos.app.goo.gl/UG8gnbWmQgfRELXf7)
+![Course Selection Screen](https://ibb.co/zmRwhCt)
