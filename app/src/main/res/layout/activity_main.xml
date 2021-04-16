@@ -198,9 +198,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:layout_marginBottom="32dp"
                 android:text="@string/txt_total_hours"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/lable_totalFees"
                 app:layout_constraintTop_toBottomOf="@+id/lable_totalFees" />
 
@@ -211,6 +209,18 @@
                 android:text="@string/placeHolder_totalHours"
                 app:layout_constraintBaseline_toBaselineOf="@+id/lable_totalHours"
                 app:layout_constraintStart_toStartOf="@+id/tvTotalFees" />
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:layout_marginBottom="32dp"
+                android:text="@string/btnTxt_logout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lable_totalHours" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

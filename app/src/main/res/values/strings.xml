@@ -25,6 +25,7 @@
     <string name="txt_total_fees">Total Fees:</string>
     <string name="placeHolder_totalFees">$ 0</string>
     <string name="txt_total_hours">Total Hours:</string>
-    <string name="placeHolder_totalHours">0 hours/week</string>
+    <string name="placeHolder_totalHours">0  hours/week</string>
     <string name="txt_loginMessage">Please enter your Username and Password to Login. On successful login, you\'ll be redirected to course selection screen.</string>
+    <string name="btnTxt_logout">Logout</string>
 </resources>

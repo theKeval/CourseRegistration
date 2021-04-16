@@ -3,6 +3,7 @@ package com.thekeval.courseregistration;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     // variables to hold the refence of UI elements
     TextView tvWelcomeMsg, tvCourseFees, tvCourseHours, tvTotalFees, tvTotalHours;
-    Button btnAdd, btnReset;
+    Button btnAdd, btnReset, btnLogout;
     RadioButton rbGraduate, rbUnderGraduate;
     CheckBox cbAccommodations, cbMedInsurance;
     Spinner spinnerCourses;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnAdd = findViewById(R.id.btnAdd);
         btnReset = findViewById(R.id.btnReset);
+        btnLogout = findViewById(R.id.btnLogout);
 
         rbGraduate = findViewById(R.id.rbGraduate);
         rbUnderGraduate = findViewById(R.id.rbUnderGraduated);
@@ -109,6 +111,14 @@ public class MainActivity extends AppCompatActivity {
                 tvCourseHours.setText("0  hours/week");
                 tvTotalFees.setText("$ " + String.format("%.0f", totalFees));
                 tvTotalHours.setText(totalHours + "  hours/week");
+            }
+        });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("MainActivity", "logout clicked");
+                onBackPressed();
             }
         });
 
