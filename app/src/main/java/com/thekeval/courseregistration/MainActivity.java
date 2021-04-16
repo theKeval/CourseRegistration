@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean shouldAdd() {
-        if (rbGraduate.isSelected()) {
+        if (rbGraduate.isChecked()) {
             if (totalHours + selectedCourse.getHours() <= 21) {
                 // add
                 return true;
