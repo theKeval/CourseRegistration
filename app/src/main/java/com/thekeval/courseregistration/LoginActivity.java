@@ -14,7 +14,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText etStudentName, etUsername, etPassword;
     Button btnLogin, btnClear;
 
-    String student_name = "";
+    public static String student_name = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
