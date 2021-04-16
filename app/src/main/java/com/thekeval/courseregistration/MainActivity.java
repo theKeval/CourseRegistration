@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -24,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     RadioButton rbGraduate, rbUnderGraduate;
     CheckBox cbAccommodations, cbMedInsurance;
     Spinner spinnerCourses;
-    RadioGroup radioGroup;
 
     // variables to use in the logic
     ArrayList<Course> lstCourses = new ArrayList<>();
@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         tvTotalFees = findViewById(R.id.tvTotalFees);
         tvTotalHours = findViewById(R.id.tvTotalHours);
 
-        radioGroup = findViewById(R.id.radioGroup);
         btnAdd = findViewById(R.id.btnAdd);
         btnReset = findViewById(R.id.btnReset);
 
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         // set the data
         tvWelcomeMsg.setText("Welcome " + studentName + ",");
-        rbUnderGraduate.setSelected(true);
+        rbUnderGraduate.setChecked(true);
 
 
         fillCourseNames();
@@ -87,6 +86,9 @@ public class MainActivity extends AppCompatActivity {
 
                     tvTotalFees.setText("$ " + totalFees);
                     tvTotalHours.setText(totalHours + "  hours/week");
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "You can't add this course. maximum hours limit reached", Toast.LENGTH_LONG).show();
                 }
             }
         });

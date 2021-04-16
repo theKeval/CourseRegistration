@@ -45,6 +45,10 @@ public class LoginActivity extends AppCompatActivity {
             // proceed for login and navigate
             student_name = etStudentName.getText().toString();
 
+            etStudentName.setText("");
+            etUsername.setText("");
+            etPassword.setText("");
+
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
 
