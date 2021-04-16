@@ -41,7 +41,8 @@
         android:hint="@string/hint_student_name"
         android:inputType="textPersonName"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvStudentName"
-        app:layout_constraintStart_toEndOf="@+id/tvStudentName" />
+        app:layout_constraintStart_toEndOf="@+id/tvStudentName"
+        android:autofillHints="Name" />
 
     <TextView
         android:id="@+id/tvUserName"
@@ -60,7 +61,8 @@
         android:hint="@string/hint_username"
         android:inputType="textPersonName"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvUserName"
-        app:layout_constraintStart_toStartOf="@+id/etStudentName" />
+        app:layout_constraintStart_toStartOf="@+id/etStudentName"
+        android:autofillHints="Username" />
 
     <TextView
         android:id="@+id/tvPassword"
@@ -79,7 +81,8 @@
         android:hint="@string/hint_password"
         android:inputType="textPassword"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvPassword"
-        app:layout_constraintStart_toStartOf="@+id/etUsername" />
+        app:layout_constraintStart_toStartOf="@+id/etUsername"
+        android:autofillHints="Password" />
 
     <Button
         android:id="@+id/btnLogin"
